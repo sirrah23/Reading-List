@@ -1,0 +1,24 @@
+* The Reading List Web App
+I have a lot of books and papers in my reading list and I am always adding more
+and more everyday (I'll never read them all). Right now I keep track of
+everything in an org-mode file, but then I thought, "Wouldn't it be cool if I
+could keep track of all of this via web app?".
+
+So here we are. This project will be written in /Backbone.js/ for the front-end
+stuff and the backend REST API will be written in Node/Express. I'll pick a
+database later.
+
+The general requirements are that I want to see three lists:
+- Readings in progress
+- Readings that are done
+- Readings that are waiting (This list will be very long)
+
+It should be easy to add new readings to the system and to move readings around
+between the three lists.
+
+When it comes to information about books, normally I just care about the title
+(it's usually enough information to find a book off of my shelf/PDF archive),
+however it would be nice to be able to add in other information like the author,
+and keywords related to the book.
+
+That's the idea. 
