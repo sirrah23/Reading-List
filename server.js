@@ -15,7 +15,8 @@ mongoose.connect('mongodb://localhost/library_database');
 //Schemas
 const readingSchema = new mongoose.Schema({
   title: String,
-  author: String
+  author: String,
+  status: String
 });
 
 

@@ -8,9 +8,12 @@ app.LibraryView = Backbone.View.extend({
   },
 
   initialize: function(initialReadings){
-    this.collection = new app.Library(initialReadings);
-    this.listenTo(this.collection, "add", this.renderReading); //display newly added reading
+    this.collection = new app.Library();
+    this.collection.fetch({reset:true}); //Grab readings from database
     this.render();
+
+    this.listenTo(this.collection, "add", this.renderReading); //display newly added reading
+    this.listenTo(this.collection, "reset", this.render); //Reset library view
   },
 
   render: function(){
@@ -20,7 +23,7 @@ app.LibraryView = Backbone.View.extend({
   },
 
   renderReading: function( reading ){
-    readingStatus = reading.get('status');
+    readingStatus = reading.get('status') || 'waiting';
     statusNode = '#'+readingStatus.toLowerCase();
     var readingView = new app.ReadingView({
       model: reading
@@ -34,10 +37,10 @@ app.LibraryView = Backbone.View.extend({
     formData = {};
 
     $("#addReading div").children("input").each(function(i, el){
-      formData[$(el).attr("id")] = $(el).val() // Put form data into object
+      formData[$(el).attr("id")] = $(el).val(); // Put form data into object
     });
 
-    this.collection.add( new app.Reading(formData)); // Add new reading to collection
+    this.collection.create( formData ); // Add new reading to collection
   }
 
 });
