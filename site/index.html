@@ -10,6 +10,11 @@
                 <li> <%= title %> </li>
                 <li> <%= author %> </li>
                 <li> <%= keywords %> </li>
+                <select name="status" class="statusDropdown">
+                    <option <%if (status==="Waiting"){print('selected') }%>>waiting</option>
+                    <option <%if (status==="Inprogress"){print('selected')}%> >in progress</option>
+                    <option <%if (status==="Done"){print('selected')}%>>done</option>
+                </select>
                 <button class="delete"> Delete </button>
             </ul>
         </script>
