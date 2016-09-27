@@ -4,7 +4,7 @@ app.Reading = Backbone.Model.extend({
   defaults: {
     title: 'None',
     author: 'Unknown',
-    status: 'Waiting',
+    status: 'waiting',
     keywords: 'None'
   },
 

@@ -14,6 +14,7 @@ app.LibraryView = Backbone.View.extend({
 
     this.listenTo(this.collection, "add", this.renderReading); //display newly added reading
     this.listenTo(this.collection, "reset", this.render); //Reset library view
+    this.listenTo(this.collection, "refresh", this.refreshReading); //Reset reading view
   },
 
   render: function(){
@@ -24,11 +25,16 @@ app.LibraryView = Backbone.View.extend({
 
   renderReading: function( reading ){
     readingStatus = reading.get('status') || 'waiting';
+    console.log(readingStatus);
     statusNode = '#'+readingStatus.toLowerCase();
     var readingView = new app.ReadingView({
       model: reading
     });
     this.$el.find(statusNode).append(readingView.render().el);
+  },
+
+  refreshReading: function (reading) {
+    this.renderReading(reading);
   },
 
   addReading : function(e){
