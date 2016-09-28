@@ -9,7 +9,6 @@
             <ul>
                 <li> <%= title %> </li>
                 <li> <%= author %> </li>
-                <li> <%= keywords %> </li>
                 <select name="status" class="statusDropdown">
                     <option <%if (status==="waiting"){print('selected') }%>>waiting</option>
                     <option <%if (status==="inprogress"){print('selected')}%> >in progress</option>
@@ -32,7 +31,6 @@
                 <div>
                     <label for="title"> Title: </label><input id="title" type="text" />
                     <label for="author"> Author: </label><input id="author" type="text" />
-                    <label for="keywords"> Keywords: </label><input id="keywords" type="text" />
                     <button id="add"> Add </button>
                 </div>
             </form>
